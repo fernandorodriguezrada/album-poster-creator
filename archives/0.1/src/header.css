@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.nav-icon-container img {
+  width: 54px;
+  height: 54px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* box-shadow: 0 1.5px 3px 2px rgba(0, 0, 0, 0.553); */
+  border: #000000 solid 2px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  word-spacing: 10px;
+  padding: 10px;
+}
+
+.header nav li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header nav li {
+  border-radius: 3px;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+}
+
+.header nav li:hover {
+  background-color: #e43a3a;
+  border-color: #999;
+  transform: scale(1.05);
+}
+
+.header nav li:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.header nav li:active {
+  transform: scale(1.1);
+}
+
+/* Media queries for responsive design */
+
+/* For large screens (desktops) */
+@media (min-width: 1200px) {
+  .nav {
+    justify-content: space-between;
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .nav {
+    flex-direction: column;
+    padding: 9px;
+    align-items: center;
+  }
+}
+
+/* For small screens (mobiles) */
+@media (max-width: 767px) {
+  .nav {
+    flex-direction: column;
+    padding: 4px;
+    align-items: center;
+  }
+
+  .nav-icon-container img {
+    width: 43px;
+    height: 43px;
+  }
+}
+
+.nav li {
+  font-size: 13px;
+}

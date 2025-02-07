@@ -1,0 +1,12 @@
+@import "./template.css";
+@import "./footer.css";
+@import "./buttons.css";
+@import "./header.css";
+
+body {
+  display: flex;
+  background-color: #f2f2f2;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+}
