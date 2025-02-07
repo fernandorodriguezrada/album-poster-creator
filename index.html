@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./img/frDev-favicon.ico" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&family=Mitr:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Album Poster Creator</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-icon-container">
+        <img src="./img/frcoding.png" alt="about icon" class="nav-icon" />
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>Album Poster Creator</h1>
+    <p>
+      <span style="color: red; font-weight: bold">"</span>This is a simple album
+      poster creator. The colors are automatically selected based on the album
+      cover you choose. The image will be saved as a .png file into your
+      downloads folder.<span style="color: red; font-weight: bold">"</span
+      ><br /><br /><span
+        style="font-weight: 300; text-decoration: underline red"
+        >by Fernando Rodriguez Rada (frrDev</span
+      >)
+    </p>
+    <!-- prettier-ignore -->
+    <div class="button-container">
+      <button class="circle-button" id="editButton" data-title="Edit Template">
+        <img src="./img/edit-pencil.png" alt="Edit" />
+      </button>
+      <button
+        class="circle-button"
+        id="resetButton"
+        data-title="Reset Template"
+      >
+        <img src="./img/reset-arrow.png" alt="Reset" />
+      </button>
+      <button
+        class="circle-button"
+        id="saveButton"
+        data-title="Save Template"
+      >
+        <img src="./img/save-cassette.png" alt="Save" />
+      </button>
+      <a href="https://www.spotifycodes.com/#create" target="_blank"> <button 
+        class="circle-button"
+        id="spotifyButton"
+        data-title="Spotify Code Generator"
+      >
+        <img src="./img/spotify.png" alt="Spotify" />
+      </button></a>
+      <button
+        class="circle-button"
+        id="historyButton"
+        data-title="History"
+        onclick="document.getElementById('history-popup').style.display='block'"
+      >
+        <img src="./img/history-clock.png" alt="History" />
+      </button>
+      <div class="history-popup-backdrop"></div>
+<div id="history-popup" class="history-popup" style="display: none;">
+        <div class="history-popup-header">Template History
+        </div>
+        <button class="clear-history" id="clearHistory" data-title="Clear History">
+          <img src="./img/trash.png" />
+        </button>
+        <div class="history-popup-content">
+          <div id="closeButton" class="close" onclick="document.getElementById('history-popup').style.display='none'">&times;</div>
+          <div class="history-squares">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="template" id="template">
+        <div class="album-cover" id="albumCover">
+          <img
+            id="coverImage"
+            src="img/the slow rush.jpg"
+            alt="albumCover"
+            crossorigin="anonymous"
+          />
+          <div class="change-image-text">CHANGE IMAGE</div>
+        </div>
+        <div class="album-content">
+          <input
+            type="file"
+            id="fileInput"
+            style="display: none"
+            accept="image/*"
+            disabled
+          />
+          <ol id="songList">
+            <li>One More Year</li>
+            <li>Instant Destiny</li>
+            <li>Borderline</li>
+            <li>Posthumous Forgiveness</li>
+            <li>Breathe Deeper</li>
+            <li>Tomorrow's Dust</li>
+            <li>On Track</li>
+            <li>Lost in Yesterday</li>
+            <li>Is It True</li>
+            <li>It Might Be Time</li>
+            <li>Glimmer</li>
+            <li>One More Hour</li>
+          </ol>
+          <div class="transparent-rectangle">ㅤ ㅤ ㅤ</div>
+          <div class="color-scheme-container">
+            <ul class="color-scheme" id="colorScheme"></ul>
+            <h2>Psychedelic Pop | Disco | Soft Rock</h2>
+            <div class="spotify-code" id="spotifyCode">
+              <img
+                src="./img/spotify-code-TSR.png"
+                id="spotifyCodeImage"
+                alt="Spotify Code"
+                crossorigin="anonymous"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="album-info">
+          <div class="album-info-wrapper">
+            <!-- prettier-ignore -->
+            <div class="album-date">57:16/February 14, 2020<br />Interscope Records</div>
+            <div class="album-name">
+              <span class="first-word" style="float: right">Tame Impala</span
+              ><br />
+              <span class="second-word" style="float: right"
+                >The Slow Rush</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script></script>
+  </body>
+  <footer class="footer">
+    Made with ❤️ by frrDev - All rights reserved © 2025
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="./appScript.js" defer></script>
+</html>

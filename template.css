@@ -1,0 +1,261 @@
+h1 {
+  color: rgb(0, 0, 0);
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  margin: 55px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+p {
+  color: rgb(38, 38, 38);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5em;
+  margin-top: 0px;
+  margin-bottom: 1em;
+  padding: 50px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.color-scheme-container {
+  position: absolute;
+  left: 205px;
+}
+@media (min-width: 829px) {
+  p {
+    padding-left: 130px;
+    padding-right: 130px;
+  }
+}
+.template {
+  display: flex;
+  position: relative; /* Add this to make the album info stick to the template */
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 4px solid rgb(0, 0, 0);
+  border-radius: 2px;
+  padding: 35px;
+  padding-top: 25px;
+  width: 270px;
+  height: 437px;
+  background-color: #f0ede2;
+  user-select: none;
+}
+
+.album-cover img {
+  width: 270px;
+  height: 270px;
+}
+
+.album-cover {
+  position: relative;
+}
+
+.change-image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 2em;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.album-cover.edit-mode .change-image-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.album-cover img {
+  transition: filter 0.3s ease;
+}
+
+.album-cover.edit-mode img {
+  filter: blur(10px);
+  cursor: pointer;
+}
+
+.change-image-text:hover {
+  cursor: pointer;
+}
+
+.album-content {
+  display: flex;
+  margin-top: 5px;
+}
+
+ol {
+  font-size: 7px;
+  font-family: "Rubik", serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-column-count: 1; /* Chrome, Safari, Opera */
+  -moz-column-count: 1; /* Firefox */
+  column-count: 1;
+  margin: 0;
+  padding-top: 8px;
+  padding-left: 10px;
+  gap: 0px;
+  max-width: 90px;
+}
+
+.album-content li:nth-of-type(12):not(:last-child)::after {
+  content: "";
+  display: block;
+  break-before: column;
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+
+.transparent-rectangle {
+  position: absolute;
+  width: 90px;
+  background: #ff634700;
+  top: 310px;
+  left: 215px;
+  z-index: 9999;
+  user-select: none;
+}
+
+.color-scheme {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+
+.color-scheme li {
+  display: flex;
+  width: 14px;
+  height: 14px;
+  margin: 5px;
+  margin-top: 0px;
+  margin-left: 5px;
+  margin-right: 0;
+  padding-top: 0px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+h2 {
+  font-size: 6px;
+  font-family: "Quicksand";
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.album-info {
+  position: absolute; /* Change this to absolute */
+  bottom: 2px; /* Stick to the bottom of the template */
+  left: 0; /* Stick to the left of the template */
+  width: 100%; /* Take up the full width of the template */
+  display: block; /* Change this to block */
+}
+
+.album-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-transform: uppercase;
+  font-size: 7px;
+  font-weight: 600;
+  font-family: "Quicksand";
+  padding: 0;
+  width: 79%;
+  margin-left: 37px;
+}
+
+.album-date {
+  margin-bottom: 25px;
+  flex-shrink: 0; /* Add this to prevent the album-date div from shrinking */
+}
+
+.album-name span {
+  line-height: 1; /* Adjust the value as needed */
+}
+.album-name .first-word {
+  line-height: 35px;
+  text-transform: uppercase;
+  font-family: "Mitr", serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+  margin-bottom: -5px; /* Adjust this value to reduce the gap */
+}
+
+.album-name .second-word {
+  line-height: 1px;
+  font-family: "Mitr", serif;
+  font-size: 19px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 34px;
+}
+
+.spotify-code {
+  position: absolute;
+  bottom: -62px;
+  right: -6px;
+}
+
+.spotify-code img {
+  width: 120px;
+  height: 30px;
+}
+
+#changeCode {
+  text-transform: uppercase;
+  font-size: 7px;
+  bottom: -72px;
+  left: 40px;
+  font-family: Rubik, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  color: rgb(38, 163, 33);
+  position: absolute;
+}
+.template.edit-mode {
+  background-color: #f0ede2; /* Solid background color */
+  background-image: linear-gradient(90deg, black 50%, transparent 0%),
+    linear-gradient(90deg, black 50%, transparent 50%),
+    linear-gradient(0deg, black 50%, transparent 50%),
+    linear-gradient(0deg, black 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 20px 3px, 20px 3px, 3px 20px, 3px 20px;
+  background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+  border: none; /* Add this line to hide the border */
+  border-radius: 0px;
+  animation: dash 10s linear infinite;
+}
+
+.template.save-mode {
+  background-color: #f0ede2; /* Override background color */
+  background-image: none; /* Override background image */
+  border: 4px solid rgb(0, 0, 0); /* Override border */
+  border-radius: 0px; /* Override border radius */
+  animation: none; /* Override animation */
+}
+@keyframes dash {
+  to {
+    background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+  }
+}

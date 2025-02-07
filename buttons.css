@@ -1,0 +1,395 @@
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  user-select: none;
+}
+
+.circle-button {
+  margin: 10px;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.circle-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.circle-button:hover {
+  background-color: #e43a3a;
+  border-color: #999;
+}
+
+.circle-button:hover::after {
+  opacity: 1; /* Show on hover */
+  visibility: visible; /* Show on hover */
+  transition: opacity 0.3s ease 0.5s, visibility 0.3s ease 0.5s; /* Delay the transition by 1 second */
+}
+.circle-button {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+.circle-button:hover {
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+.circle-button:active {
+  transform: scale(1.1); /* Increase size on click */
+}
+
+.circle-button img {
+  width: 20px; /* Adjust the size of the image */
+  height: 20px; /* Adjust the size of the image */
+}
+
+.circle-button::after {
+  content: attr(data-title); /* Use the data-title attribute as content */
+  position: absolute; /* Absolute positioning */
+  font-family: Quicksand, sans-serif;
+  bottom: 60px; /* Position below the button */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: #292929; /* Dark background */
+  color: #fff; /* White text */
+  padding: 5px; /* Some padding */
+  border-radius: 3px; /* Rounded corners */
+  font-size: 12px; /* Smaller font size */
+  white-space: nowrap; /* Prevent text wrapping */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+}
+
+.circle-button:hover::after {
+  opacity: 1; /* Show on hover */
+  visibility: visible; /* Show on hover */
+}
+
+#editButton.active {
+  background-color: #e43a3a; /* Red background */
+  /*transform: scale(1.1); /* Keep the size increased */
+}
+
+#editButton.active::after {
+  opacity: 1; /* Keep tooltip visible */
+  visibility: visible; /* Keep tooltip visible */
+}
+
+#editButton:active {
+  background-color: #e43a3a; /* Red background when active */
+}
+
+#editButton.active::after {
+  opacity: 0; /* Hide tooltip */
+  visibility: hidden; /* Hide tooltip */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.history-popup {
+  position: fixed;
+  font-family: Poppins, sans-serif;
+  width: 70%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #dedede;
+  padding: 20px;
+  padding-top: 37px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  overflow-y: auto;
+  max-height: 0;
+  animation: none;
+}
+
+.history-popup-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #000000;
+}
+
+.history-popup.show {
+  max-height: 80vh;
+  animation: zoomIn 0.3s;
+}
+
+.history-popup.hide {
+  animation: zoomOut 0.3s;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.history-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.23);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9998;
+  display: none;
+}
+
+.history-popup-backdrop.active {
+  display: block;
+}
+
+.history-squares {
+  display: grid;
+  justify-items: center;
+  padding: 40px;
+  padding-top: 0px;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-auto-rows: minmax(100px, 1fr);
+  grid-auto-flow: row;
+  grid-gap: 70px;
+}
+
+.square {
+  background-color: #cecece;
+  border-radius: 5px;
+  width: 90px;
+  height: 120px;
+  outline: rgb(186, 186, 186) solid 2px;
+  z-index: 9998;
+}
+
+.square:has(img) {
+  outline: none;
+}
+
+.square:hover::after {
+  opacity: 1; /* Show on hover */
+  visibility: visible; /* Show on hover */
+  transition: opacity 0.3s ease 0.5s, visibility 0.3s ease 0.5s; /* Delay the transition by 1 second */
+}
+.square {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+.square.has-image:hover {
+  outline: #e43a3a solid 3px;
+  border-radius: 5px;
+  transform: scale(1.05);
+}
+
+.square.has-image:active {
+  transform: scale(1.1);
+}
+
+.square.has-history.has-image:hover {
+  outline: #e43a3a solid 3px;
+  border-radius: 5px;
+  transform: scale(1.05);
+}
+
+.square.has-history.has-image:active {
+  transform: scale(1.1);
+}
+
+.square img {
+  width: 100%;
+  height: 100%;
+  outline: black solid 2px;
+  border-radius: 5px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.history-popup::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 0px 5px 5px 0px;
+  background: #727272;
+}
+
+.history-popup::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.close {
+  position: fixed;
+  top: -2px;
+  right: 7px;
+  font-size: 50px;
+}
+
+.clear-history {
+  position: fixed;
+  top: 3px;
+  left: 3px;
+  color: white;
+  margin: 10px;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.clear-history img {
+  width: 24px;
+  height: 24px;
+}
+
+.clear-history:hover {
+  background-color: #e43a3a;
+  border-color: #999;
+}
+
+.clear-history:hover::after {
+  opacity: 1; /* Show on hover */
+  visibility: visible; /* Show on hover */
+  transition: opacity 0.3s ease 0.5s, visibility 0.3s ease 0.5s; /* Delay the transition by 1 second */
+}
+.clear-history {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+.clear-history:hover {
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+.clear-history:active {
+  transform: scale(1.1); /* Increase size on click */
+}
+
+.clear-history img {
+  width: 20px; /* Adjust the size of the image */
+  height: 20px; /* Adjust the size of the image */
+}
+
+.clear-history::after {
+  content: attr(data-title); /* Use the data-title attribute as content */
+  position: absolute; /* Absolute positioning */
+  font-family: Quicksand, sans-serif;
+  bottom: 60px; /* Position below the button */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: #292929; /* Dark background */
+  color: #fff; /* White text */
+  padding: 5px; /* Some padding */
+  border-radius: 3px; /* Rounded corners */
+  font-size: 12px; /* Smaller font size */
+  white-space: nowrap; /* Prevent text wrapping */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+}
+
+.clear-history:hover::after {
+  opacity: 1; /* Show on hover */
+  visibility: visible; /* Show on hover */
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1200px) {
+  .history-popup {
+    width: 65%;
+    height: 90%;
+  }
+  .history-squares {
+    grid-gap: 10px;
+    grid-row-gap: 25px;
+  }
+  .square {
+    width: 160px;
+    height: 240px;
+  }
+  .square img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .history-popup-header {
+    padding-bottom: 30px;
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .history-popup {
+    width: 70%;
+    height: 90%;
+  }
+  .history-squares {
+    grid-gap: 36px;
+    grid-row-gap: 36px;
+  }
+  .square {
+    width: 130px;
+    height: 200px;
+  }
+  .square img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .history-popup-header {
+    padding-bottom: 30px;
+  }
+}
+
+/* For small screens (mobiles) */
+@media (max-width: 767px) {
+  .history-popup {
+    width: 80%;
+    height: 90%;
+  }
+  .history-squares {
+    padding: 15px;
+    grid-template-columns: repeat(2, minmax(50px, 1fr));
+    grid-template-rows: repeat(3, minmax(100px, 1fr));
+    grid-gap: 45px;
+    grid-row-gap: 20px;
+  }
+  .square {
+    width: 100px;
+    height: 150px;
+  }
+  .square img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .clear-history {
+    width: 35px;
+    height: 35px;
+  }
+
+  .close {
+    font-size: 45px;
+  }
+}
